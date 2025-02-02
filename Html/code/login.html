@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bottom Pop-up Login</title>
+    <style>
+        /* Background Image */
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('background_image.jpg.webp') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Open Button */
+        .open-btn {
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        /* Pop-up Login Box */
+        .popup {
+            position: fixed;
+            bottom: -100%; /* Initially hidden */
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+            transition: bottom 0.3s ease-in-out;
+        }
+
+        /* Close Button */
+        .close-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        /* Input Fields */
+        input {
+            width: 80%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Login Button */
+        .login-btn {
+            width: 80%;
+            padding: 10px;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Button to Open Login Popup -->
+    <button class="open-btn" onclick="openPopup()">Login</button>
+
+    <!-- Bottom Pop-up Login Form -->
+    <div class="popup" id="loginPopup">
+        <h2>Login</h2>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <a href="web_page.html">
+        <button class="login-btn">Login</button>
+        </a>
+        <br>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById("loginPopup").style.bottom = "0";
+        }
+
+        function closePopup() {
+            document.getElementById("loginPopup").style.bottom = "-100%";
+        }
+    </script>
+
+</body>
+</html>

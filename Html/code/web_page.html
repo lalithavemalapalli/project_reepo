@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Web Page with Right Navigation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-image: url('image2.png.jpg'); /* Replace with your background image path */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Main content */
+        .content {
+            flex: 1;
+            padding: 20px;
+            color: rgb(18, 3, 17);
+            background-color: rgba(98, 157, 173, 0.5);
+        }
+
+        /* Right side navigation bar */
+        .nav-bar {
+            width: 150px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            background-color: #297884;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        .nav-bar a, .dropdown-btn {
+            text-decoration: none;
+            color: rgb(15, 2, 2);
+            padding: 15px 20px;
+            margin: 10px 0;
+            width: 100%;
+            text-align: center;
+            transition: background-color 0.3s;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 16px;
+        }
+
+        .nav-bar a:hover, .dropdown-btn:hover {
+            background-color: #575757;
+        }
+
+        /* Dropdown Menus */
+        .dropdown {
+            display: none;
+            position: absolute;
+            right: 10px;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        .dropdown a {
+            display: block;
+            color: black;
+            padding: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content">
+        <h1>Welcome to the women's safety place</h1>
+        <p>As women we need to stand up for ourself...<br>
+            we must stand for each other...<br>
+            we must stand up for justice for all...<br>
+            The best <span><b>PROTECTION</b></span> any women can have is <span><b>COURAGE</b></span> to <span><b>DO</b></span> anything and to <span><b>FIGHT</b></span> with anyone.</p>
+    </div>
+
+    <div class="nav-bar">
+        <a href="#Home">Home</a>
+
+        <!-- Features Section with Dropdown -->
+        <button class="dropdown-btn" onclick="toggleDropdown('featuresMenu')">Features ▼</button>
+        <div class="dropdown" id="featuresMenu">
+            <a href="#">Quick SOS Alert</a>
+            <a href="#">Live Location Sharing</a>
+            <a href="#">Emergency Contacts</a>
+            <a href="#">Self-defense Tips</a>
+            <a href="#">Safe Zone Tracking</a>
+        </div>
+
+        <!-- Download and Register Section with Dropdown -->
+        <button class="dropdown-btn" onclick="toggleDropdown('downloadMenu')">Download and Register ▼</button>
+        <div class="dropdown" id="downloadMenu">
+            <a href="#">Play Store Link</a>
+            <a href="#">Register/Login Page</a>
+            <a href="#">Social Media Sign-in Options</a>
+        </div>
+
+        <!-- Emergency SOS Section with Dropdown -->
+        <button class="dropdown-btn" onclick="toggleDropdown('sosMenu')">Emergency SOS ▼</button>
+        <div class="dropdown" id="sosMenu">
+            <a href="#">SOS Button</a>
+        </div>
+
+        <!-- Contact Section with Dropdown -->
+        <button class="dropdown-btn" onclick="toggleDropdown('contactMenu')">Contact ▼</button>
+        <div class="dropdown" id="contactMenu">
+            <a href="#">Helpline Numbers</a>
+            <a href="#">Live Chat or Contact Form</a>
+            <a href="#">FAQs on Women's Safety</a>
+        </div>
+
+        <!-- Privacy Section with Dropdown -->
+        <button class="dropdown-btn" onclick="toggleDropdown('privacyMenu')">Privacy ▼</button>
+        <div class="dropdown" id="privacyMenu">
+            <a href="#">Terms and Conditions</a>
+        </div>
+
+        <!-- Account Section with Dropdown -->
+        <button class="dropdown-btn" onclick="toggleDropdown('accountMenu')">Account ▼</button>
+        <div class="dropdown" id="accountMenu">
+            <a href="#">Manage Profile</a>
+            <a href="#">Edit</a>
+            <a href="#">Log Out</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(menuId) {
+            var menu = document.getElementById(menuId);
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+
+        // Close the dropdowns when clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-btn')) {
+                var dropdowns = document.getElementsByClassName("dropdown");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    if (dropdowns[i].style.display === "block") {
+                        dropdowns[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
